@@ -6,7 +6,7 @@ import java.util.List;
 @NoArgsConstructor
 @Setter
 public class Grafo {
-    private boolean isDirecionado;
+    public boolean isDirecionado;
     private List<Vertice> vertices;
     private List<Aresta> arestas;
     private int ordem;

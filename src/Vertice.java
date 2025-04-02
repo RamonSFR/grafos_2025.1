@@ -8,12 +8,14 @@ import java.util.List;
 public class Vertice {
     private String nome;
     private List<Vertice> adjacencias = new ArrayList<>();
-    private int grau; //direc = inDegree + outDegree
+    private int grau;
     private int inDegree;
     private int outDegree;
+    private Grafo grafo;
 
-    public Vertice(String nome) {
+    public Vertice(String nome, Grafo grafo) {
         this.nome = nome;
+        this.grafo = grafo;
     }
 
     public void addAdjacencia(Vertice vertice) {
@@ -32,6 +34,11 @@ public class Vertice {
     @Override
     public String toString() {
         List<String> listaNomesAdjacencias = adjacencias.stream().map(Vertice::getNome).toList();
+
+        if (grafo.isDirecionado) {
+            return nome + "(grau: + " + grau + ", inDegree: " + inDegree + ", outDegree" + outDegree + ", adjacencias: " + listaNomesAdjacencias + ")";
+        }
+
         return nome + "(grau: + " + grau + ", adjacencias: " + listaNomesAdjacencias + ")";
     }
 }
