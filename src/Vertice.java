@@ -31,8 +31,7 @@ public class Vertice {
 
     @Override
     public String toString() {
-        // Resolver o stackOverFlow
-        // Como printar o in e outDegree apenas para quando for grafo direcionado?
-        return nome + "(grau: + " + grau + ", adjacencias: " + adjacencias + ")";
+        List<String> listaNomesAdjacencias = adjacencias.stream().map(Vertice::getNome).toList();
+        return nome + "(grau: + " + grau + ", adjacencias: " + listaNomesAdjacencias + ")";
     }
 }
